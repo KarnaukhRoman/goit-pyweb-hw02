@@ -1,4 +1,4 @@
-from classes import AddressBook, Record, UserInterface, TerminaUI, WebUI
+from classes import AddressBook, Record, UserInterface, TerminalUI, WebUI
 import pickle
 
 
@@ -6,7 +6,7 @@ class Commander:
     @classmethod
     def run(cls, source):
         if source == 'console':
-            ui = TerminaUI()
+            ui = TerminalUI()
         elif source == 'web':
             ui = WebUI()
         else:

@@ -11,7 +11,7 @@ class UserInterface(ABC):
     def send_to_ui(self, message):
         pass
 
-class TerminaUI(UserInterface):
+class TerminalUI(UserInterface):
 
     def send_to_ui(self, message):
         print(f'(Console interface)\n{message}')
