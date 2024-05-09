@@ -4,18 +4,17 @@ from datetime import datetime, timedelta
 from abc import ABC, abstractmethod
 
 
+
 class UserInterface(ABC):
 
     @abstractmethod
     def send_to_ui(self, message):
         pass
 
-
-class TerminalUI(UserInterface):
+class TerminaUI(UserInterface):
 
     def send_to_ui(self, message):
         print(f'(Console interface)\n{message}')
-
 
 class WebUI(UserInterface):
 
@@ -108,7 +107,6 @@ class Record:
     def __str__(self):
         return f"Contact name: {str(self.name)}, phones: {'; '.join(str(p.value) for p in self.phones)}, birthday: {str(self.birthday)} \n"
 
-
 class AddressBook(UserDict):
     # реалізація класу
     def add_record(self, record):
@@ -126,7 +124,7 @@ class AddressBook(UserDict):
         birthdays = []
         for record in self.data.values():
             birthday_date = str(curent_date.year) + str(record.birthday)[4::]
-            birthday_date = datetime.strptime(birthday_date, "%Y-%m-%d").date()
+            birthday_date = datetime.strptime(birthday_date,"%Y-%m-%d").date()
             week_day_bdate = birthday_date.isoweekday()
             days_between = (birthday_date - curent_date).days
             if 0 <= days_between < 7:
